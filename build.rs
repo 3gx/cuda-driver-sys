@@ -36,6 +36,7 @@ fn main() {
 			.whitelisted_type("CUfunction_attribute")
 			.whitelisted_type("CUpointer_attribute")
 			.whitelisted_type("CUresult")
+			.whitelisted_type("CUstream_flags")
 			// Keep these alphabetized.
 			.whitelisted_function("cuCtxCreate")
 			.whitelisted_function("cuCtxCreate_v2")
