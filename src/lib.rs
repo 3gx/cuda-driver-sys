@@ -51,7 +51,7 @@ mod tests {
 	fn alloc() {
 		let _foo = Context::new();
 		unsafe {
-			let mut mem: CUdeviceptr = ::std::mem::uninitialized();
+			let mut mem = 0 as CUdeviceptr;
 			cu!(cuMemAlloc_v2(&mut mem, 64*12*4));
 			cu!(cuMemFree_v2(mem));
 		}
