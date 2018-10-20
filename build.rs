@@ -34,6 +34,7 @@ fn main() {
 			.whitelisted_type("CUdeviceptr")
 			.whitelisted_type("CUevent_flags")
 			.whitelisted_type("CUfunction_attribute")
+			.whitelisted_type("CUmemAttach_flags")
 			.whitelisted_type("CUpointer_attribute")
 			.whitelisted_type("CUresult")
 			.whitelisted_type("CUstream_flags")
