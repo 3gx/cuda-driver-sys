@@ -65,7 +65,7 @@ BB0_2:
 	#[test]
 	fn bringup_teardown() {
 		let dev: CUdevice = 0;
-		let flags: raw::c_uint = CUctx_flags::CU_CTX_SCHED_AUTO as raw::c_uint;
+		let flags: raw::c_uint = CU_CTX_SCHED_AUTO as raw::c_uint;
 		unsafe {
 			cu!(cuInit(0 as raw::c_uint));
 			let mut ctx: CUcontext = ::std::mem::uninitialized();
@@ -80,7 +80,7 @@ BB0_2:
 	impl Context {
 		fn new() -> Self {
 			let dev: CUdevice = 0;
-			let flags: raw::c_uint = CUctx_flags::CU_CTX_SCHED_AUTO as raw::c_uint;
+			let flags: raw::c_uint = CU_CTX_SCHED_AUTO as raw::c_uint;
 			unsafe {
 				let mut ctxt: CUcontext = ::std::mem::uninitialized();
 				cu!(cuInit(0 as raw::c_uint));
@@ -126,7 +126,7 @@ BB0_2:
 			cu!(cuMemAlloc_v2(&mut a, 64*12*size_flt));
 			cu!(cuMemAlloc_v2(&mut b, 64*12*size_flt));
 			cu!(cuMemAlloc_v2(&mut c, 64*12*size_flt));
-			let global = CUmemAttach_flags::CU_MEM_ATTACH_GLOBAL as u32;
+			let global = CU_MEM_ATTACH_GLOBAL as u32;
 			cu!(cuMemAllocManaged(&mut n, ::std::mem::size_of::<usize>(), global));
 			let n_host = n as *mut usize;
 			*n_host = 64*12;
@@ -138,7 +138,7 @@ BB0_2:
 			cu!(cuModuleGetFunction(&mut fqn, module,
 			                        fqnname.as_ptr() as *const raw::c_char));
 			let mut strm: CUstream = ::std::mem::uninitialized();
-			let nonblock = CUstream_flags::CU_STREAM_NON_BLOCKING as u32;
+			let nonblock = CU_STREAM_NON_BLOCKING as u32;
 			cu!(cuStreamCreate(&mut strm, nonblock));
 
 			let grid: [raw::c_uint;3] = [4, 1, 1];
